@@ -1,6 +1,9 @@
+//- /butterfly/layout/includes/widget/index.pug
+
 #aside-content.aside-content
   //- post
   if is_post()
+    //- 如果是文章页面，下面对应的else应该指的是主页面
     - const tocStyle = page.toc_style_simple
     - const tocStyleVal = tocStyle === true || tocStyle === false ? tocStyle : theme.toc.style_simple
     if showToc && tocStyleVal
@@ -19,16 +22,16 @@
     //- page
     !=partial('includes/widget/card_author', {}, {cache: true})
     !=partial('includes/widget/card_announcement', {}, {cache: true})
-    !=partial('includes/widget/card_top_self', {}, {cache: true})
+    !=partial('includes/widget/card_top_self', {}, {cache: true})      
 
     .sticky_layout
       if showToc
         include ./card_post_toc.pug
       !=partial('includes/widget/card_recent_post', {}, {cache: true})
-      !=partial('includes/widget/card_ad', {}, {cache: true})
-      !=partial('includes/widget/card_newest_comment', {}, {cache: true})
+      //- !=partial('includes/widget/card_ad', {}, {cache: true})
+      //- !=partial('includes/widget/card_newest_comment', {}, {cache: true})
       !=partial('includes/widget/card_categories', {}, {cache: true})
       !=partial('includes/widget/card_tags', {}, {cache: true})
-      !=partial('includes/widget/card_archives', {}, {cache: true})
+      //- !=partial('includes/widget/card_archives', {}, {cache: true})
       !=partial('includes/widget/card_webinfo', {}, {cache: true})
       !=partial('includes/widget/card_bottom_self', {}, {cache: true})
